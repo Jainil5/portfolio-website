@@ -21,6 +21,7 @@ header {
   position: fixed;
   width: 100%;
   z-index: 500;
+  font-weight: bolder;
 }
 .navbar-container {
   display: flex;
@@ -87,7 +88,6 @@ header {
 .about-me .about-heading {
   color: #25b79f;
 
-  font-weight: 600;
   text-align: center;
 }
 .about-content img {
@@ -166,7 +166,7 @@ header {
   width: 70%;
 }
 .progress-line .go {
-  width: 50%;
+  width: 30%;
 }
 .progress-line .c {
   width: 30%;
@@ -406,6 +406,12 @@ header {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+.contact-content h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #25b79f;
+  padding-bottom: 0.5rem;
 }
 .contact-content h2 {
   font-size: 2.5rem;
