@@ -2,6 +2,8 @@
 
 This portfolio website project was developed using **Flask** for the backend and **HTML/CSS** for the front end. The website showcases my projects, skills, and professional journey.
 
+**Visit the live site here:** [My Portfolio](https://jp5.pythonanywhere.com)
+
 ## Features
 
 - **Home Page**: An overview of the portfolio and introduction.
