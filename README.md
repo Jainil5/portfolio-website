@@ -1,38 +1,23 @@
-Portfolio Website Project
-Overview
-This project is a personal portfolio website showcasing my skills, projects, and professional journey. It features a Flask-based backend with a responsive and visually appealing frontend created using HTML and CSS.
+# Portfolio Website
 
-Features
-Home Page: Introduction and summary of skills.
-Projects Section: Display of completed projects with descriptions and links.
-About Me Section: Personal and professional background.
-Contact Form: Functional contact form to receive messages (integrated with Flask).
-Responsive Design: Optimized for various screen sizes.
-Tech Stack
-Backend: Flask (Python)
-Frontend: HTML5, CSS3
-Hosting/Deployment: (e.g., Heroku, AWS, or local server) (Replace with the actual hosting platform used)
-Installation
-Follow these steps to run the project locally:
+This portfolio website project was developed using **Flask** for the backend and **HTML/CSS** for the front end. The website showcases my projects, skills, and professional journey.
 
-Prerequisites
-Python 3.x
-Flask (Install using pip install flask)
+## Features
 
-Project Structure
+- **Home Page**: An overview of the portfolio and introduction.
+- **Projects Section**: A showcase of completed projects with descriptions and links.
+- **Skills Section**: Highlights my technical skills.
+- **About Me Page**: A form for visitors to send messages directly to me.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
 
-portfolio-website/
-├── static/
-│   ├── css/
-│   │   └── styles.css
-│   ├── images/
-│   └── js/
-├── templates/
-│   ├── base.html
-│   ├── index.html
-│   ├── about.html
-│   ├── projects.html
-│   └── contact.html
-├── app.py
-├── requirements.txt
-├── README.md
+## Technologies Used
+
+- **Backend**: Flask
+- **Frontend**: HTML, CSS
+
+
+## Installation and Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/portfolio-website.git
