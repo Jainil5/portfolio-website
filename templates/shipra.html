@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipra Homeopathic Clinic</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #C0D0E0; /* Sky Blue background */
+            color: #273E47; /* Navy text */
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #567C8D; /* Teal on hover */
+        }
+        .btn-primary {
+            background-color: #567C8D; /* Teal */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #4A6B7F; /* Darker Teal on hover */
+        }
+        .section-title {
+            color: #273E47; /* Navy for titles */
+        }
+        /* Loading spinner styles */
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #567C8D; /* Teal */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-sm py-4 px-6 md:px-12 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo/Clinic Name -->
+            <a href="#" class="text-2xl font-bold text-[#273E47] rounded-md p-2">
+                Dr. Disha Kapadia
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-[#273E47]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- Navigation Links (Desktop) -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 font-medium hover:text-[#567C8D]">Home</a>
+                <a href="#about" class="nav-link text-gray-700 font-medium hover:text-[#567C8D]">About</a>
+                <a href="#services" class="nav-link text-gray-700 font-medium hover:text-[#567C8D]">Services</a>
+                <a href="#insights" class="nav-link text-gray-700 font-medium hover:text-[#567C8D]">Insights</a>
+                <a href="#testimonials" class="nav-link text-gray-700 font-medium hover:text-[#567C8D]">Testimonials</a>
+                <a href="#contact" class="nav-link text-gray-700 font-medium hover:text-[#567C8D]">Contact</a>
+                <a href="#appointment" class="btn-primary flex items-center justify-center rounded-md text-sm font-medium">Book Appointment</a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+            <a href="#home" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Home</a>
+            <a href="#about" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">About</a>
+            <a href="#services" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Services</a>
+            <a href="#insights" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Insights</a>
+            <a href="#testimonials" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Testimonials</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Contact</a>
+            <a href="#appointment" class="block px-4 py-2 btn-primary text-center rounded-md">Book Appointment</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-r from-[#567C8D] to-[#273E47] text-white py-20 md:py-32 overflow-hidden rounded-b-lg shadow-lg">
+        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                    Holistic Healing with Homeopathy
+                </h1>
+                <p class="text-lg md:text-xl mb-8 opacity-90">
+                    Experience gentle, effective, and personalized care for your well-being.
+                </p>
+                <a href="#appointment" class="btn-primary text-lg font-semibold inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
+                    Schedule Your Consultation
+                </a>
+            </div>
+            <div class="md:w-1/2 flex justify-center md:justify-end">
+                <!-- Placeholder for Doctor's Image -->
+                <img src="https://placehold.co/400x400/567C8D/ffffff?text=Dr.+Disha+Kapadia" alt="Dr. Disha Kapadia" class="rounded-full border-4 border-white shadow-2xl w-64 h-64 md:w-80 md:h-80 object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 md:py-24 bg-[#D9D2C9] px-6 md:px-12">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">About Dr. Disha Kapadia</h2>
+            <div class="flex flex-col md:flex-row items-center md:space-x-12">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://placehold.co/600x400/C0D0E0/273E47?text=Our+Clinic" alt="Our Clinic" class="rounded-lg shadow-xl w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2 text-lg leading-relaxed text-gray-700">
+                    <p class="mb-4">
+                        Dr. Disha Kapadia is a highly experienced and compassionate homeopathic practitioner dedicated to providing holistic healthcare solutions. With over [X] years of experience, Dr. Disha Kapadia believes in treating the individual, not just the disease, by understanding the unique physical, mental, and emotional aspects of each patient.
+                    </p>
+                    <p class="mb-4">
+                        Our clinic is committed to empowering patients on their journey to optimal health through safe, natural, and effective homeopathic remedies. We focus on stimulating the body's innate healing abilities, leading to sustainable and long-lasting well-being.
+                    </p>
+                    <p>
+                        We strive to create a warm and supportive environment where patients feel heard, understood, and confident in their treatment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-[#C0D0E0] px-6 md:px-12">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white rounded-lg shadow-md p-8 text-center border-t-4 border-[#567C8D] hover:shadow-xl transition duration-300">
+                    <div class="text-5xl text-[#273E47] mb-4">
+                        &#128137; <!-- Syringe emoji for medical treatment -->
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-[#273E47]">Chronic Disease Management</h3>
+                    <p class="text-gray-600">
+                        Effective and gentle treatment for long-standing conditions like allergies, arthritis, diabetes, and hypertension.
+                    </p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="bg-white rounded-lg shadow-md p-8 text-center border-t-4 border-[#567C8D] hover:shadow-xl transition duration-300">
+                    <div class="text-5xl text-[#273E47] mb-4">
+                        &#128103; <!-- Family emoji for family health -->
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-[#273E47]">Family & Child Health</h3>
+                    <p class="text-gray-600">
+                        Safe and natural remedies for common childhood ailments, developmental issues, and overall family wellness.
+                    </p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="bg-white rounded-lg shadow-md p-8 text-center border-t-4 border-[#567C8D] hover:shadow-xl transition duration-300">
+                    <div class="text-5xl text-[#273E47] mb-4">
+                        &#129504; <!-- Brain emoji for mental health -->
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-[#273E47]">Mental & Emotional Well-being</h3>
+                    <p class="text-gray-600">
+                        Support for stress, anxiety, depression, and other emotional imbalances through personalized homeopathic care.
+                    </p>
+                </div>
+                <!-- Service Card 4 -->
+                <div class="bg-white rounded-lg shadow-md p-8 text-center border-t-4 border-[#567C8D] hover:shadow-xl transition duration-300">
+                    <div class="text-5xl text-[#273E47] mb-4">
+                        &#128150; <!-- Heart emoji for women's health -->
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-[#273E47]">Women's Health</h3>
+                    <p class="text-gray-600">
+                        Holistic solutions for menstrual irregularities, PCOD, menopause symptoms, and pregnancy-related issues.
+                    </p>
+                </div>
+                <!-- Service Card 5 -->
+                <div class="bg-white rounded-lg shadow-md p-8 text-center border-t-4 border-[#567C8D] hover:shadow-xl transition duration-300">
+                    <div class="text-5xl text-[#273E47] mb-4">
+                        &#128073;&#127995; <!-- Hand pointing right for acute conditions -->
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-[#273E47]">Acute Conditions</h3>
+                    <p class="text-gray-600">
+                        Quick and effective relief for acute illnesses like colds, flu, fevers, and minor injuries.
+                    </p>
+                </div>
+                <!-- Service Card 6 -->
+                <div class="bg-white rounded-lg shadow-md p-8 text-center border-t-4 border-[#567C8D] hover:shadow-xl transition duration-300">
+                    <div class="text-5xl text-[#273E47] mb-4">
+                        &#128227; <!-- Megaphone emoji for online consultation -->
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-4 text-[#273E47]">Online Consultations</h3>
+                    <p class="text-gray-600">
+                        Convenient virtual consultations for patients who cannot visit the clinic in person.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Homeopathy Insights Section (New Gemini API Feature) -->
+    <section id="insights" class="py-16 md:py-24 bg-[#D9D2C9] px-6 md:px-12">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Homeopathy Insights ✨</h2>
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md border-t-4 border-[#567C8D]">
+                <p class="text-lg text-gray-700 mb-6 text-center">
+                    Have questions about homeopathy? Ask our AI assistant for general information and insights!
+                </p>
+                <div class="mb-6">
+                    <label for="insight-question" class="block text-gray-700 text-sm font-bold mb-2">Your Question:</label>
+                    <textarea id="insight-question" rows="3"
+                            class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#567C8D] focus:border-transparent"
+                            placeholder="e.g., What is the principle of 'like cures like' in homeopathy?"></textarea>
+                </div>
+                <button id="get-insight-btn" class="btn-primary w-full py-3 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300 flex items-center justify-center">
+                    <span id="btn-text">Get Insight</span>
+                    <div id="loader" class="loader ml-3 hidden"></div>
+                </button>
+                <div id="insight-response" class="mt-8 p-6 bg-[#f0f9ff] rounded-lg shadow-inner border border-gray-200 text-gray-800 leading-relaxed hidden">
+                    <!-- LLM response will be displayed here -->
+                </div>
+                <p id="insight-disclaimer" class="mt-4 text-sm text-gray-500 text-center hidden">
+                    <span class="font-semibold">Disclaimer:</span> This information is generated by an AI and is for general knowledge only. It is not a substitute for professional medical advice. Always consult a qualified homeopathic practitioner for diagnosis and treatment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 md:py-24 bg-[#C0D0E0] px-6 md:px-12">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">What Our Patients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial Card 1 -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-[#567C8D]">
+                    <p class="text-lg italic text-gray-700 mb-4">
+                        "Dr. Disha Kapadia has truly transformed my health. I suffered from chronic migraines for years, and after homeopathic treatment, I feel so much better. Highly recommend!"
+                    </p>
+                    <p class="font-semibold text-[#273E47]">- Patient A.K.</p>
+                </div>
+                <!-- Testimonial Card 2 -->
+                <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-[#567C8D]">
+                    <p class="text-lg italic text-gray-700 mb-4">
+                        "The personalized care and attention I received were exceptional. My child's allergies have significantly improved thanks to Dr. Disha Kapadia's expertise."
+                    </p>
+                    <p class="font-semibold text-[#273E47]">- Parent of J.S.</p>
+                </div>
+                <!-- Add more testimonials as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Booking / Contact Section -->
+    <section id="appointment" class="py-16 md:py-24 bg-[#273E47] text-white px-6 md:px-12 rounded-t-lg shadow-lg">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8">Book Your Appointment Today</h2>
+            <p class="text-lg mb-12 max-w-2xl mx-auto opacity-90">
+                Take the first step towards holistic well-being. Fill out the form below or contact us directly to schedule your consultation.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center items-start md:space-x-12">
+                <!-- Contact Information -->
+                <div id="contact" class="md:w-1/3 text-left mb-8 md:mb-0 bg-[#273E47] p-8 rounded-lg shadow-xl">
+                    <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+                    <p class="mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684L10.5 9.87a1 1 0 00.54.54l3.245 1.623a1 1 0 00.684.948H19a2 2 0 012 2v1a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        +91 12345 67890
+                    </p>
+                    <p class="mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 4v7a2 2 0 002 2h14a2 2 0 002-2v-7m-18 0h18"></path></svg>
+                        info@drdishakapadia.com
+                    </p>
+                    <p class="mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        [Your Clinic Address], Surat, Gujarat, India
+                    </p>
+                    <p class="mb-4">
+                        **Clinic Hours:**<br>
+                        Mon - Fri: 9:00 AM - 6:00 PM<br>
+                        Sat: 10:00 AM - 2:00 PM<br>
+                        Sun: Closed
+                    </p>
+                    <div class="mt-6">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.091176504231!2d72.80931221493605!3d21.1895689859239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f76d2e9b0b1%3A0x6d9e0f6f0a1c1a1!2sSurat%2C%20Gujarat%2C%20India!5e0!3m2!1sen!2sin!4v1719999999999!5m2!1sen!2sin"
+                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-md">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Appointment Form -->
+                <div class="md:w-2/3 bg-white p-8 rounded-lg shadow-xl text-gray-800">
+                    <h3 class="text-2xl font-semibold mb-6 text-[#273E47]">Appointment Request Form</h3>
+                    <form id="appointment-form">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Your Name:</label>
+                            <input type="text" id="name" name="name" required
+                                class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#567C8D] focus:border-transparent">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Your Email:</label>
+                            <input type="email" id="email" name="email" required
+                                class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#567C8D] focus:border-transparent">
+                        </div>
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" required
+                                class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#567C8D] focus:border-transparent">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Your Message (Optional):</label>
+                            <textarea id="message" name="message" rows="4"
+                                    class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#567C8D] focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full py-3 text-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300">
+                            Submit Appointment Request
+                        </button>
+                    </form>
+                    <div id="form-message" class="mt-4 text-center text-sm font-medium hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#273E47] text-white py-8 px-6 md:px-12 rounded-t-lg">
+        <div class="container mx-auto text-center md:flex md:justify-between md:items-center">
+            <p class="mb-4 md:mb-0">&copy; 2025 Dr. Disha Kapadia Homeopathic Clinic. All rights reserved.</p>
+            <div class="flex justify-center md:justify-end space-x-6">
+                <a href="#" class="hover:text-[#C0D0E0] transition duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-[#C0D0E0] transition duration-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu after clicking a link
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Appointment Form Submission
+        const appointmentForm = document.getElementById('appointment-form');
+        const formMessage = document.getElementById('form-message');
+
+        appointmentForm.addEventListener('submit', async function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(appointmentForm);
+            const data = Object.fromEntries(formData.entries());
+
+            formMessage.classList.add('hidden'); // Hide any previous messages
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/book_appointment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                formMessage.classList.remove('hidden');
+                if (response.ok) {
+                    formMessage.textContent = 'Appointment request submitted successfully! We will contact you shortly.';
+                    formMessage.classList.remove('text-red-500');
+                    formMessage.classList.add('text-[#567C8D]');
+                    appointmentForm.reset(); // Clear form on success
+                } else {
+                    formMessage.textContent = result.message || 'An error occurred. Please try again.';
+                    formMessage.classList.remove('text-[#567C8D]');
+                    formMessage.classList.add('text-red-500');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                formMessage.classList.remove('hidden');
+                formMessage.textContent = 'Network error. Could not connect to the server.';
+                formMessage.classList.remove('text-[#567C8D]');
+                formMessage.classList.add('text-red-500');
+            }
+        });
+    </script>
+</body>
+</html>

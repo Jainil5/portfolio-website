@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Disha Kapadia - Online Appointment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS based on the new color scheme from the user's photo */
+        :root {
+            --primary-navy: #2f3156;
+            --secondary-teal: #667c8d;
+            --accent-beige: #f6efe8;
+            --light-blue: #c8d9e2;
+            --white: #ffffff;
+            --dark-text: #2f3156;
+            --light-text: #ffffff;
+            --border-color: #dddddd;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-blue);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: var(--primary-navy);
+            color: var(--light-text);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        nav {
+            background-color: var(--secondary-teal);
+            padding: 0.75rem 0;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-navy);
+        }
+
+        /* Main Content Sections */
+        .section {
+            background-color: var(--white);
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .about-content img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--secondary-teal);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background-color: var(--accent-beige);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background-color: var(--accent-beige);
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-navy);
+            border-radius: 8px;
+            font-style: italic;
+        }
+
+        .testimonial-card p {
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card small {
+            display: block;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        /* Booking Form */
+        #booking-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        #booking-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        #booking-form input,
+        #booking-form button {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 1rem;
+        }
+
+        #booking-form input:focus {
+            outline: none;
+            border-color: var(--primary-navy);
+            box-shadow: 0 0 0 3px rgba(47, 49, 86, 0.25);
+        }
+
+        #booking-form button {
+            background-color: var(--secondary-teal);
+            color: var(--light-text);
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        #booking-form button:hover {
+            background-color: #556c7d;
+        }
+
+        .message-box {
+            padding: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            display: none;
+            font-weight: 600;
+        }
+
+        .message-box.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message-box.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--secondary-teal);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: none;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-navy);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            nav a {
+                display: block;
+                padding: 0.5rem 0;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Dr. Disha Kapadia</h1>
+            <p>Your Path to Holistic Health Through Homeopathy</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#book">Book Appointment</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Dr. Disha Kapadia</h2>
+            <div class="about-content">
+                <img src="https://placehold.co/150x150/2F3156/FFFFFF?text=DK" alt="Dr. Disha Kapadia">
+                <p>Dr. Disha Kapadia is a dedicated and compassionate homeopathic practitioner with over 15 years of experience. She believes in treating the person as a whole, addressing the root cause of ailments rather than just the symptoms. Dr. Kapadia holds a Bachelor of Homeopathic Medicine and Surgery (BHMS) and has helped countless patients achieve long-lasting health and well-being through personalized treatment plans.</p>
+                <p>Her areas of expertise include chronic disease management, pediatric homeopathy, and lifestyle-related disorders. She is committed to providing a safe, gentle, and effective alternative to conventional medicine.</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Online Consultations</h3>
+                    <p>Convenient and personalized consultations from the comfort of your home. We use a secure platform for video and audio calls.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Chronic Disease Management</h3>
+                    <p>Homeopathic treatment for long-term illnesses like allergies, asthma, arthritis, and skin conditions.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Pediatric Homeopathy</h3>
+                    <p>Gentle and effective treatment for children's common ailments, focusing on natural and safe remedies.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Women's Health</h3>
+                    <p>Holistic care for various women's health issues, including hormonal imbalances, menstrual disorders, and menopausal symptoms.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section">
+            <h2 class="section-title">Patient Testimonials</h2>
+            <div class="services-grid">
+                <div class="testimonial-card">
+                    <p>"Dr. Kapadia is truly a miracle worker. Her treatment helped me with my chronic migraines after years of suffering. I highly recommend her."</p>
+                    <small>- Anya Sharma</small>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The online consultations were so convenient. Dr. Disha's approach is so patient-centric and empathetic. Thank you for your care."</p>
+                    <small>- Rohan Patel</small>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I was hesitant about homeopathy for my child, but Dr. Kapadia's gentle remedies worked wonders. So glad I found her!"</p>
+                    <small>- Priya Singh</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="book" class="section">
+            <h2 class="section-title">Book an Online Appointment</h2>
+            <form id="booking-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">WhatsApp Active Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10,15}" required>
+                </div>
+                <button type="submit">Book Appointment</button>
+            </form>
+            <div id="message-box" class="message-box"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dr. Disha Kapadia. All Rights Reserved.</p>
+            <p>Contact: disha.kapadia@example.com</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('booking-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            const messageBox = document.getElementById('message-box');
+            messageBox.style.display = 'none';
+
+            // Simple client-side validation
+            if (!data.name || !data.mobile) {
+                messageBox.textContent = 'Please fill out all fields.';
+                messageBox.classList.remove('success');
+                messageBox.classList.add('error');
+                messageBox.style.display = 'block';
+                return;
+            }
+
+            try {
+                // Send data to the Python backend API
+                const response = await fetch('http://127.0.0.1:5000/api/book_appointment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    messageBox.textContent = result.message;
+                    messageBox.classList.remove('error');
+                    messageBox.classList.add('success');
+                    form.reset(); // Clear form on success
+                } else {
+                    messageBox.textContent = result.message || 'An error occurred. Please try again.';
+                    messageBox.classList.remove('success');
+                    messageBox.classList.add('error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                messageBox.textContent = 'Network error. Could not connect to the server.';
+                messageBox.classList.remove('success');
+                messageBox.classList.add('error');
+            }
+
+            messageBox.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
